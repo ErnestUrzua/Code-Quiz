@@ -1,8 +1,15 @@
 // pointers to html elements
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
+var startEl = document.getElementById("start");
+var secondsLeft = 30;
 
-var secondsLeft = 15;
+
+//function that starts the game
+function start() {
+    
+    setTime(); //set timer
+}
 
 //function that sets time and displays on screen
 function setTime() {
@@ -31,4 +38,5 @@ function sendMessage() {
 
 }
 
-setTime();
+//event listener for start
+startEl.addEventListener("click",start);
