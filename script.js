@@ -2,17 +2,26 @@
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 var startEl = document.getElementById("start");
-var button01 = document.getElementById("#button01")
-var answer01El = document.querySelector(".answer01")
+var answer01El = document.getElementById("#button1");
+var question01El = document.querySelector(".question1");
 var secondsLeft =5;
 var questions = [
-    { q: "What is a data structure?", a: "a particular way of organizing data in a computer so that it can be used effectively." },
+    { q: "A data structure is a particular way of __________ data in a computer.", a: "organizing" },
     { q: "Which sorting method is slowest?", a: "Bogosort" },
-    { q: "What is a Binary Tree?", a: "a tree data structure in which each node has at most two children, which are referred to as the left child and the right child." },
+    { q: "A Binary Tree is a ______ data structure in which each node has 2 children", a: "tree" },
     { q: "Which programming language is considered a script language", a: "javascript" },
     { q: "Which programming language is older?", a: "C" },
     { q: "What does \"CS\"stand for ?", a: "Computer Science" },
-    { q: "What is a class?", a: "A class is a blueprint from which objects are created. A class contains methods and variables associated with an instance of a class." }]
+    { q: "A class is a ________ from which objects are created.", a: "blueprint" }]
+
+var Answers1 = ["organizing,cleaning", "stripping", "losing"];
+var Answers2 = ["bogosort", "quicksort", "mergesort", "bubblesort"];
+var Answers3 = ["tree","leaf", "stick", "singular"];
+var Answers4 = ["javascript","java", "C", "C#"];
+var Answers5 = ["C","ADA", "C++", "java"];
+var Answers6 = ["Computer Science", "Computer Stuff", "Computer Staff", "Computa set"];
+var Answers7 = ["blueprint","graph", "scale", "function"];
+
 
 //function that sets time and displays on screen
 function setTime() {
@@ -39,10 +48,11 @@ function start() {
     setTime(); //set timer
 
     //display questions here
-    mainEl.textContent = questions[0].q;
+    question01El.textContent = questions[0].q;
 
     //display correct answer above a button
-    answer01El.textContent = questions[0].a;
+    console.log(questions[0].a);
+    answer01El.innerText = questions[0].a;
 }
 
 
