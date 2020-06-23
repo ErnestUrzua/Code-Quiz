@@ -2,7 +2,9 @@
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 var startEl = document.getElementById("start");
-var secondsLeft = 30;
+var button01 = document.getElementById("#button01")
+var answer01El = document.querySelector(".answer01")
+var secondsLeft =5;
 var questions = [
     { q: "What is a data structure?", a: "a particular way of organizing data in a computer so that it can be used effectively." },
     { q: "Which sorting method is slowest?", a: "Bogosort" },
@@ -11,13 +13,6 @@ var questions = [
     { q: "Which programming language is older?", a: "C" },
     { q: "What does \"CS\"stand for ?", a: "Computer Science" },
     { q: "What is a class?", a: "A class is a blueprint from which objects are created. A class contains methods and variables associated with an instance of a class." }]
-
-
-//function that starts the game
-function start() {
-    
-    setTime(); //set timer
-}
 
 //function that sets time and displays on screen
 function setTime() {
@@ -35,16 +30,33 @@ function setTime() {
     }, 1000);
 }
 
+//function that displays the questions
+
+
+//function that starts the game
+function start() {
+
+    setTime(); //set timer
+
+    //display questions here
+    mainEl.textContent = questions[0].q;
+
+    //display correct answer above a button
+    answer01El.textContent = questions[0].a;
+}
+
+
+
 //function that clears message and displays a picture onscreen
 function sendMessage() {
     timeEl.textContent = " ";
 
     var imgEl = document.createElement("img");
 
-    imgEl.setAttribute("src", "assets/fillin.jpg");
+    imgEl.setAttribute("src", "assets/congrats.png");
     mainEl.appendChild(imgEl);
 
 }
 
 //event listener for start
-startEl.addEventListener("click",start);
+startEl.addEventListener("click", start);
