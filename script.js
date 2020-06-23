@@ -2,25 +2,22 @@
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 var startEl = document.getElementById("start");
-var answer01El = document.getElementById("#button1");
+var answer01El = document.getElementById("button1");
+var answer02El = document.getElementById("button2");
+var answer03El = document.getElementById("button3");
+var answer04El = document.getElementById("button4");
+var selection;
+var score = 0;
 var question01El = document.querySelector(".question1");
-var secondsLeft =5;
+var secondsLeft = 5;
 var questions = [
-    { q: "A data structure is a particular way of __________ data in a computer.", a: "organizing" },
-    { q: "Which sorting method is slowest?", a: "Bogosort" },
-    { q: "A Binary Tree is a ______ data structure in which each node has 2 children", a: "tree" },
-    { q: "Which programming language is considered a script language", a: "javascript" },
-    { q: "Which programming language is older?", a: "C" },
-    { q: "What does \"CS\"stand for ?", a: "Computer Science" },
-    { q: "A class is a ________ from which objects are created.", a: "blueprint" }]
-
-var Answers1 = ["organizing,cleaning", "stripping", "losing"];
-var Answers2 = ["bogosort", "quicksort", "mergesort", "bubblesort"];
-var Answers3 = ["tree","leaf", "stick", "singular"];
-var Answers4 = ["javascript","java", "C", "C#"];
-var Answers5 = ["C","ADA", "C++", "java"];
-var Answers6 = ["Computer Science", "Computer Stuff", "Computer Staff", "Computa set"];
-var Answers7 = ["blueprint","graph", "scale", "function"];
+    { q: "A data structure is a particular way of __________ data in a computer.", a: "organizing", answers: ["organizing", "cleaning", "stripping", "losing"] },
+    { q: "Which sorting method is slowest?", a: "Bogosort", answers: ["bogosort", "quicksort", "mergesort", "bubblesort"] },
+    { q: "A Binary Tree is a ______ data structure in which each node has 2 children", a: "tree", answers: ["tree", "leaf", "stick", "singular"] },
+    { q: "Which programming language is considered a script language", a: "javascript", answers: ["javascript", "java", "C", "C#"] },
+    { q: "Which programming language is older?", a: "C", answers: ["C", "ADA", "C++", "java"] },
+    { q: "What does \"CS\"stand for ?", a: "Computer Science", answers: ["Computer Science", "Computer Stuff", "Computer Staff", "Computa set"] },
+    { q: "A class is a ________ from which objects are created.", a: "blueprint", answers: ["blueprint", "graph", "scale", "function"] }];
 
 
 //function that sets time and displays on screen
@@ -47,14 +44,33 @@ function start() {
 
     setTime(); //set timer
 
-    //display questions here
-    question01El.textContent = questions[0].q;
+    //iterate through the questions
+    for (var i = 0; i < questions.length; i++) {
 
-    //display correct answer above a button
-    console.log(questions[0].a);
-    //answer01El.innerText = Answers1[0];
+        //display questions here
+        question01El.textContent = questions[i].q;
+
+
+        //display answers in a button
+        answer01El.innerText = questions[i].answers[0];
+        answer02El.innerText = questions[i].answers[1];
+        answer03El.innerText = questions[i].answers[2];
+        answer04El.innerText = questions[i].answers[3];
+
+
+
+    };
 }
+console.log(questions[0].answers[0]);
+function compareAnswers() {
+    if (questions[i].a === selection) {
+        score += 5;
+    }
+    else {
+        score -= 2;
+    }
 
+}
 
 
 //function that clears message and displays a picture onscreen
@@ -70,3 +86,5 @@ function sendMessage() {
 
 //event listener for start
 startEl.addEventListener("click", start);
+//selection.addEventListener("button", compareAnswers);
+
