@@ -33,7 +33,7 @@ function setTime() {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            sendMessage();
+            //sendMessage(); displays message at end of game
         }
 
     }, 1000);
@@ -52,7 +52,7 @@ function start() {
 
     //display correct answer above a button
     console.log(questions[0].a);
-    answer01El.innerText = questions[0].a;
+    //answer01El.innerText = Answers1[0];
 }
 
 
