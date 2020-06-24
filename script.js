@@ -12,6 +12,7 @@ var score = 0;
 var question01El = document.querySelector(".question1");
 var secondsLeft = 5;
 var currentIndex = 0;
+
 var questions = [
     { q: "A data structure is a particular way of __________ data in a computer.", a: "organizing", answers: ["organizing", "cleaning", "stripping", "losing"] },
     { q: "Which sorting method is slowest?", a: "Bogosort", answers: ["bogosort", "quicksort", "mergesort", "bubblesort"] },
@@ -38,8 +39,6 @@ function setTime() {
     }, 1000);
 }
 
-//function that displays the questions
-
 
 //function that starts the game
 function start() {
@@ -47,16 +46,16 @@ function start() {
     setTime(); //set timer
 
     //iterate through the questions
-    
-        // //display questions here
-        // question01El.textContent = questions[currentIndex].q;
 
-        // //display answers in a button
-        // button1El.value = questions[currentIndex].answers[0];
-        // button2El.value = questions[currentIndex].answers[1];
-        // button3El.value = questions[currentIndex].answers[2];
-        // button4El.value = questions[currentIndex].answers[3];
-        next();
+    // //display questions here
+    // question01El.textContent = questions[currentIndex].q;
+
+    // //display answers in a button
+    // button1El.value = questions[currentIndex].answers[0];
+    // button2El.value = questions[currentIndex].answers[1];
+    // button3El.value = questions[currentIndex].answers[2];
+    // button4El.value = questions[currentIndex].answers[3];
+    next();
 }
 
 //console.log(questions[0].answers[0]);
@@ -66,9 +65,11 @@ function compareAnswers(selection) {
     console.log(selection);
     if (questions[currentIndex].a === selection) {
         score += 5;
+        scoreEl.textContent = score; //update score
     }
     else {
         score -= 2;
+        scoreEl.textContent = score; //update score
     }
 
     currentIndex++;
@@ -77,23 +78,23 @@ function compareAnswers(selection) {
 
 function next() {
     console.log("current Index" + currentIndex);
-   
-    if (currentIndex < questions.length ){
-     
-    //display questions here
-    question01El.textContent = questions[currentIndex].q;
 
-    //display answers in a button
+    if (currentIndex < questions.length) {
 
-    button1El.value = questions[currentIndex].answers[0];
-    button2El.value = questions[currentIndex].answers[1];
-    button3El.value = questions[currentIndex].answers[2];
-    button4El.value = questions[currentIndex].answers[3];
+        //display questions here
+        question01El.textContent = questions[currentIndex].q;
 
-    button1El.innerText = questions[currentIndex].answers[0];
-    button2El.innerText = questions[currentIndex].answers[1];
-    button3El.innerText = questions[currentIndex].answers[2];
-    button4El.innerText = questions[currentIndex].answers[3];
+        //display answers in a button
+
+        button1El.value = questions[currentIndex].answers[0];
+        button2El.value = questions[currentIndex].answers[1];
+        button3El.value = questions[currentIndex].answers[2];
+        button4El.value = questions[currentIndex].answers[3];
+
+        button1El.innerText = questions[currentIndex].answers[0];
+        button2El.innerText = questions[currentIndex].answers[1];
+        button3El.innerText = questions[currentIndex].answers[2];
+        button4El.innerText = questions[currentIndex].answers[3];
     }
     else {
         //end game
@@ -114,23 +115,23 @@ function sendMessage() {
 //event listener for start
 startEl.addEventListener("click", start);
 
-button1El.addEventListener("click", function() {
+button1El.addEventListener("click", function () {
     compareAnswers(this.value);//checks if the input is correct
     next(); //loads new questions
-  });
+});
 
-  button2El.addEventListener("click", function() {
+button2El.addEventListener("click", function () {
     compareAnswers(this.value);//checks if the input is correct
     next(); //loads new questions
-  });
+});
 
-  button3El.addEventListener("click", function() {
+button3El.addEventListener("click", function () {
     compareAnswers(this.value);//checks if the input is correct
     next(); //loads new questions
-  });
+});
 
-  button4El.addEventListener("click", function() {
+button4El.addEventListener("click", function () {
     compareAnswers(this.value);//checks if the input is correct
     next(); //loads new questions
-  });
+});
 
