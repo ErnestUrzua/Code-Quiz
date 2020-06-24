@@ -101,14 +101,18 @@ function sendMessage() {
     button3El.textContent = "";
     button4El.textContent = "";
 
-
+    //append img to questions window
     var imgEl = document.createElement("img");
-    var formEl = document.getElementById("highScores");
     imgEl.setAttribute("src", "assets/congrats.png");
-    formEl.setAttribute("p","Initials" + score);
-    //mainEl.appendChild(formEl);
     questions1El.appendChild(imgEl);
-    highScores.appendChild(formEl);
+
+    
+    //create item to append to high scores
+    var highScoresEl = document.getElementById("highScores");
+    var item = document.createElement("p");
+    item.textContent = prompt("Enter Initals")+" : "+ score;//put score in item 
+    highScoresEl.append(item);
+    highScoresEl.setAttribute("visibility","hidden");
 }
 
 //possible reset button implementation
