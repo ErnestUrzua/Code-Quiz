@@ -9,8 +9,8 @@ var button4El = document.getElementById("button4");
 var scoreEl = document.getElementById("score")
 var selection;
 var score = 0;
-var question01El = document.querySelector(".question1");
-var secondsLeft = 5;
+var questions1El = document.querySelector(".question1");
+var secondsLeft = 30;
 var currentIndex = 0;
 
 var questions = [
@@ -33,7 +33,7 @@ function setTime() {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            //sendMessage(); displays message at end of game
+            sendMessage(); //displays message at end of game
         }
 
     }, 1000);
@@ -45,36 +45,25 @@ function start() {
 
     setTime(); //set timer
 
-    //iterate through the questions
-
-    // //display questions here
-    // question01El.textContent = questions[currentIndex].q;
-
-    // //display answers in a button
-    // button1El.value = questions[currentIndex].answers[0];
-    // button2El.value = questions[currentIndex].answers[1];
-    // button3El.value = questions[currentIndex].answers[2];
-    // button4El.value = questions[currentIndex].answers[3];
+    //next question function
     next();
 }
 
-//console.log(questions[0].answers[0]);
-
-
 function compareAnswers(selection) {
     console.log(selection);
-    
+
     if (questions[currentIndex].a === selection) {
         score += 5;
         scoreEl.textContent = score; //update score
     }
     else {
         score -= 2;
+        secondsLeft = secondsLeft - 2;
         scoreEl.textContent = score; //update score
     }
 
     currentIndex++;
-    console.log("incremented index " + currentIndex + "-question length" + questions.length);
+    //console.log("incremented index " + currentIndex + "-question length" + questions.length);
 }
 
 function next() {
@@ -83,7 +72,7 @@ function next() {
     if (currentIndex < questions.length) {
 
         //display questions here
-        question01El.textContent = questions[currentIndex].q;
+        questions1El.textContent = questions[currentIndex].q;
 
         //display answers in a button
 
@@ -99,13 +88,14 @@ function next() {
     }
     else {
         //end game
+
         sendMessage();
     }
 }
 
-//function that clears message and displays a picture onscreen
+//function that clears messages and displays a picture onscreen
 function sendMessage() {
-    question01El.textContent = " ";
+    questions1El.textContent = "Game Over";
     button1El.textContent = "";
     button2El.textContent = "";
     button3El.textContent = "";
@@ -113,17 +103,20 @@ function sendMessage() {
 
 
     var imgEl = document.createElement("img");
-
+    var formEl = document.getElementById("highScores");
     imgEl.setAttribute("src", "assets/congrats.png");
-    mainEl.appendChild(imgEl);
-
+    formEl.setAttribute("p","Initials" + score);
+    //mainEl.appendChild(formEl);
+    questions1El.appendChild(imgEl);
+    highScores.appendChild(formEl);
 }
 
+//possible reset button implementation
 function reset() {
     location.reload();
 }
 
-//event listener for start
+//event listeners for start, and buttons
 startEl.addEventListener("click", start);
 
 button1El.addEventListener("click", function () {

@@ -81,5 +81,23 @@
     #main {
         text-align: center; 
         color: rgb(255, 255, 255); 
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          
+           
+        animation-name: example;
+        animation-duration: 4s;
+        transition: ease-in-out;
+          
+    }
+
+    #highScores {
+        max-width: 20%;
+        opacity: 80%;
+        border-radius: 15px;
+        margin-left: 75%;
+        margin-top: 10%;
+        background-color: #b5f8fb;
+        color:  #fec4ca;
+        padding: 1px;
+        
     }
