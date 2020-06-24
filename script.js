@@ -63,6 +63,7 @@ function start() {
 
 function compareAnswers(selection) {
     console.log(selection);
+    
     if (questions[currentIndex].a === selection) {
         score += 5;
         scoreEl.textContent = score; //update score
@@ -98,18 +99,28 @@ function next() {
     }
     else {
         //end game
+        sendMessage();
     }
 }
 
 //function that clears message and displays a picture onscreen
 function sendMessage() {
-    timeEl.textContent = " ";
+    question01El.textContent = " ";
+    button1El.textContent = "";
+    button2El.textContent = "";
+    button3El.textContent = "";
+    button4El.textContent = "";
+
 
     var imgEl = document.createElement("img");
 
     imgEl.setAttribute("src", "assets/congrats.png");
     mainEl.appendChild(imgEl);
 
+}
+
+function reset() {
+    location.reload();
 }
 
 //event listener for start

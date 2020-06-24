@@ -62,6 +62,7 @@
         background-color: #B4daeb;
     }
     .question1 {
+        position: relative;
         max-width: 50%;
         margin-left: 22.5%;
         background-color: #fec4ca;
@@ -72,6 +73,7 @@
     }
 
     #start {
+        
         padding:25px;
         margin: 20px;
     }
