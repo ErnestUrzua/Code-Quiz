@@ -33,7 +33,7 @@ function setTime() {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            sendMessage(); //displays message at end of game
+            endGame(); //displays message at end of game
         }
 
     }, 1000);
@@ -67,7 +67,7 @@ function compareAnswers(selection) {
 }
 
 function next() {
-    console.log("current Index" + currentIndex);
+    //console.log("current Index" + currentIndex);
 
     if (currentIndex < questions.length) {
 
@@ -88,18 +88,18 @@ function next() {
     }
     else {
         //end game
-
-        sendMessage();
+        //endGame(); //currently interferes with timer ending
     }
 }
 
 //function that clears messages and displays a picture onscreen
-function sendMessage() {
+function endGame() {
     questions1El.textContent = "Game Over";
     button1El.textContent = "";
     button2El.textContent = "";
     button3El.textContent = "";
     button4El.textContent = "";
+    startEl.textContent = "";
 
     //append img to questions window
     var imgEl = document.createElement("img");
@@ -111,8 +111,9 @@ function sendMessage() {
     var highScoresEl = document.getElementById("highScores");
     var item = document.createElement("p");
     item.textContent = prompt("Enter Initals")+" : "+ score;//put score in item 
+    
+    //highScoresEl.setAttribute("visibility","visible");
     highScoresEl.append(item);
-    highScoresEl.setAttribute("visibility","hidden");
 }
 
 //possible reset button implementation
